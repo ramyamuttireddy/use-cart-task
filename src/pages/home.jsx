@@ -89,36 +89,42 @@ function Home() {
 
   return (
 
-    <div>
+    <div className="w-[100%] m-[0_auto] flex flex-col justify-center ">
 
 
       <button></button>
-
+      <div className="bg-orange-200 p-6 ">
       {cart.map((cartItem) => {
         return (
-          <div key={cartItem.cartId}>
-            {cartItem.name}
-            {cartItem.price} $ {cartItem.quility}
+         
+          <div key={cartItem.cartId} className="flex  justify-center gap-4 w-[500px] items-cente">
+            <div>{cartItem.name}</div>
+            <div>$ {cartItem.price}</div> 
+            <div> {cartItem.quility}</div>
             <button onClick={() => {removeItems(cartItem.cartId)}} className="border-black border-2">
               Remove the Item
             </button>
 
           </div>
+          
         );
       })}
+      </div>
+
+      
 
       <header>
         <span>Total Items In Cart {cart.length}</span>
         <span>Price ${totalPrice}</span>
       </header>
 
-      <div className="grid grid-cols-4 gap-3">
+      <div className="grid grid-cols-4 gap-3 max-w-[1440px] m-[0_auto] bg-indigo-100 p-10">
         {products.map((product) => {
 
           return (
             <div key={product.name} className="">
 
-              <div className="flex flex-col border-black border-2 p-5">
+              <div className=" flex flex-col border-black border-2 p-5">
                 <img src={product.thumbnail} alt="" className="w-40 h-40" />
                 <p>
                   {product.name}<br />
